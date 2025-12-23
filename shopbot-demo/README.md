@@ -41,15 +41,26 @@ uv pip install -r requirements.txt
 
 ### 3. 앱 실행
 
+#### Reflex 버전 (추천, 더 빠름!)
+
+```bash
+reflex run
+```
+
+브라우저에서 자동으로 열립니다 (http://localhost:3000)
+
+#### Streamlit 버전 (원본)
+
 ```bash
 streamlit run app.py
 ```
 
-브라우저에서 자동으로 열립니다 (보통 http://localhost:8501)
+브라우저에서 자동으로 열립니다 (http://localhost:8501)
 
 ### 4. 종료
 
 ```bash
+# Ctrl+C로 서버 종료 후
 # 가상환경 비활성화
 deactivate
 ```
@@ -59,12 +70,20 @@ deactivate
 ```bash
 cd shopbot-demo
 source .venv/bin/activate
-streamlit run app.py
+reflex run  # 또는 streamlit run app.py
 ```
+
+## UI 프레임워크
+
+프로젝트는 두 가지 UI 버전을 제공합니다:
+
+1. **Reflex** (`reflex_app.py`) - 더 빠르고 모던한 UI
+2. **Streamlit** (`app.py`) - 간단한 프로토타입
 
 ## 필요 패키지
 
-- streamlit - 웹 UI
+- reflex - 풀스택 웹 프레임워크 (추천)
+- streamlit - 간단한 웹 UI
 - pandas - 데이터 처리
 - scikit-learn - TF-IDF 벡터화 및 유사도 계산
 
@@ -72,11 +91,15 @@ streamlit run app.py
 
 ```
 shopbot-demo/
-├── app.py              # 메인 애플리케이션
-├── external_kb.csv     # 외부 지식베이스
-├── requirements.txt    # 패키지 의존성
-├── .gitignore         # Git 제외 파일
-└── .venv/             # 가상환경 (Git 제외)
+├── reflex_app.py          # Reflex 앱 (추천)
+├── app.py                 # Streamlit 앱 (원본)
+├── rxconfig.py            # Reflex 설정
+├── data/
+│   ├── internal_kb.csv   # 내부 지식베이스
+│   └── external_kb.csv   # 외부 지식베이스
+├── requirements.txt       # 패키지 의존성
+├── .gitignore            # Git 제외 파일
+└── .venv/                # 가상환경 (Git 제외)
 ```
 
 ## 데이터 구조

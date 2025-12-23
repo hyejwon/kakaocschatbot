@@ -61,7 +61,8 @@ def build_retriever(df: pd.DataFrame):
 
 def retrieve(df: pd.DataFrame, vectorizer, X, query: str, topk: int = 3):
     if df.empty or vectorizer is None or X is None:
-        return pd.DataFrame(columns=df.columns), []
+        empty_df = pd.DataFrame(columns=list(df.columns) + ["score"])
+        return empty_df, []
     qv = vectorizer.transform([query])
     sims = cosine_similarity(qv, X).flatten()
     idxs = sims.argsort()[::-1][:topk]

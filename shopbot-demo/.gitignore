@@ -1,3 +1,7 @@
+.states
+assets/external/
+.web
+*.db
 # Virtual Environment
 .venv/
 venv/
@@ -32,4 +36,9 @@ build/
 
 # Streamlit
 .streamlit/
+
+# Reflex
+.web/
+assets/
+rxconfig.pyc
 
